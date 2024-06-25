@@ -7,7 +7,7 @@ lengthChecker('проверяемая строка', 18);
 lengthChecker('проверяемая строка', 10);
 
 function isPalindrome (text) {
-  let normalizeText = text.toLowerCase().replaceAll(' ', '');
+  const normalizeText = text.toLowerCase().replaceAll(' ', '');
   let reverceText = '';
 
   for (let i = normalizeText.length - 1; i >= 0; i--) {
