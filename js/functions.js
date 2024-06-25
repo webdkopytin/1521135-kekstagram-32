@@ -1,5 +1,5 @@
 function lengthChecker (stringLine, maxLength) {
-  return stringLine.length <= maxLength ? true : false;
+  return stringLine.length <= maxLength;
 }
 
 lengthChecker('проверяемая строка', 20);
@@ -14,7 +14,7 @@ function isPalindrome (text) {
     reverceText += normalizeText.at(i);
   }
 
-  return normalizeText === reverceText ? true : false;
+  return normalizeText === reverceText;
 }
 
 isPalindrome('топот');
