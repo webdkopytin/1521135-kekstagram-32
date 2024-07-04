@@ -61,21 +61,11 @@ const getRandomArrayElement = (elements) => {
 	return elements[getRandomPositiveInteger(0, elements.length - 1)];
 };
 
-let randNumber = Math.round(Math.random() * 30);
+const randNumber = Math.round(Math.random() * 30);
 
 const generateIdPhotos = createRandomIdFromRangeGenerator(1, SIMILAR_COMMENTS_COUNT);
 const generateIdUrl = createRandomIdFromRangeGenerator(1, SIMILAR_COMMENTS_COUNT);
 const similarCommentsPhoto = Array.from({length: randNumber}, generateCommentsPhoto);
-
-const createDescriptionPhoto = () => {
-	return {
-		id: generateIdPhotos(),
-		url: `photos/${generateIdUrl()}.jpg`,
-		description: getRandomArrayElement(DESCRIPTIONS),
-    likes: Math.round(Math.random() * 200),
-    comments: similarCommentsPhoto,
-	};
-};
 
 /**
  * Генерирует комментарии к фотографиям
@@ -87,6 +77,16 @@ function generateCommentsPhoto() {
     avatar: `img/avatar-${Math.floor(Math.random() * 6 + 1)}.svg`,
     message: getRandomArrayElement(MESSAGES),
     name: getRandomArrayElement(NAMES),
+  };
+};
+
+const createDescriptionPhoto = () => {
+	return {
+		id: generateIdPhotos(),
+		url: `photos/${generateIdUrl()}.jpg`,
+		description: getRandomArrayElement(DESCRIPTIONS),
+    likes: Math.round(Math.random() * 200),
+    comments: similarCommentsPhoto,
 	};
 };
 
