@@ -29,10 +29,10 @@ const MESSAGES = [
 const SIMILAR_COMMENTS_COUNT = 25;
 
 const getRandomPositiveInteger = (a, b) => {
-	const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
-	const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
-	const result = Math.random() * (upper - lower + 1) + lower;
-	return Math.floor(result);
+  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
+  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
 };
 
 /**
@@ -55,11 +55,9 @@ function createRandomIdFromRangeGenerator (min, max) {
     previousValues.push(currentValue);
     return currentValue;
   };
-};
+}
 
-const getRandomArrayElement = (elements) => {
-	return elements[getRandomPositiveInteger(0, elements.length - 1)];
-};
+const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
 const randNumber = Math.round(Math.random() * 30);
 
@@ -78,16 +76,14 @@ function generateCommentsPhoto() {
     message: getRandomArrayElement(MESSAGES),
     name: getRandomArrayElement(NAMES),
   };
-};
+}
 
-const createDescriptionPhoto = () => {
-	return {
-		id: generateIdPhotos(),
-		url: `photos/${generateIdUrl()}.jpg`,
-		description: getRandomArrayElement(DESCRIPTIONS),
-    likes: Math.round(Math.random() * 200),
-    comments: similarCommentsPhoto,
-	};
-};
+const createDescriptionPhoto = () => ({
+  id: generateIdPhotos(),
+  url: `photos/${generateIdUrl()}.jpg`,
+  description: getRandomArrayElement(DESCRIPTIONS),
+  likes: Math.round(Math.random() * 200),
+  comments: similarCommentsPhoto,
+});
 
 const similarDescriptionPhoto = Array.from({length: SIMILAR_COMMENTS_COUNT}, createDescriptionPhoto);
