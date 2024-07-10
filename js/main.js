@@ -22,5 +22,4 @@ const createDescriptionPhoto = () => {
 
 const similarDescriptionPhoto = Array.from({length: SIMILAR_COMMENTS_COUNT}, createDescriptionPhoto);
 
-// eslint-disable-next-line no-console
-console.log(similarDescriptionPhoto);
+similarDescriptionPhoto();
