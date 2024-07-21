@@ -2,6 +2,7 @@ import {DESCRIPTIONS, SIMILAR_COMMENTS_COUNT} from './data.js';
 import {getRandomPositiveInteger} from './get-random-positive-integer.js';
 import {createRandomIdFromRangeGenerator} from './create-random-id-from-range-generator.js';
 import {generateCommentsPhoto} from './generate-comments-photo.js';
+import {generateTumbnails} from './generate-thumbnails.js';
 
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 const generateIdPhotos = createRandomIdFromRangeGenerator(1, SIMILAR_COMMENTS_COUNT);
@@ -22,4 +23,4 @@ const createDescriptionPhoto = () => {
 
 const similarDescriptionPhoto = Array.from({length: SIMILAR_COMMENTS_COUNT}, createDescriptionPhoto);
 
-similarDescriptionPhoto();
+generateTumbnails(similarDescriptionPhoto);
